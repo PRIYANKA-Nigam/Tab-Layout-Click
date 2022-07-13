@@ -1,26 +1,34 @@
 package com.example.tablayoutclick;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
-Context context; Dialog dialog;
+    private static final int REQUEST_CALL = 1 ;
+    Context context; Dialog dialog;
 List<Contact> list;
-
+TextView textView2;
     public RecyclerViewAdapter(Context context, List<Contact> list) {
         this.context = context;
         this.list = list;
@@ -40,12 +48,31 @@ List<Contact> list;
             public void onClick(View view) {
 
                 TextView textView=(TextView)dialog.findViewById(R.id.tt);
-                TextView textView2=(TextView)dialog.findViewById(R.id.tt2);
+                textView2=(TextView)dialog.findViewById(R.id.tt2);
                 ImageView imageView=(ImageView)dialog.findViewById(R.id.im);
                 textView.setText(list.get(myViewHolder.getAdapterPosition()).getName());
                 textView2.setText(list.get(myViewHolder.getAdapterPosition()).getPhone());
                 imageView.setImageResource(list.get(myViewHolder.getAdapterPosition()).getPhoto());
-
+                Button b1=(Button)dialog.findViewById(R.id.bb);
+                Button b2=(Button)dialog.findViewById(R.id.bb2);
+                b1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String n=textView2.getText().toString();
+                      Intent intent=new Intent(context,PhoneActivity.class);
+                      intent.putExtra("call",n);
+                      context.startActivity(intent);
+                    }
+                });
+                b2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String n=textView2.getText().toString();
+                        Intent intent=new Intent(context,SMSActivity.class);
+                        intent.putExtra("sms",n);
+                        context.startActivity(intent);
+                    }
+                });
                 Toast.makeText(context,"Test Clicked"+String.valueOf(myViewHolder.getAdapterPosition()),Toast.LENGTH_LONG).show();
                 dialog.show();
             }
@@ -54,11 +81,22 @@ List<Contact> list;
 
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 holder.t1.setText(list.get(position).getName());
 holder.t2.setText(list.get(position).getPhone());
 holder.imageView.setImageResource(list.get(position).getPhoto());
+holder.imageView2.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        String n=holder.t2.getText().toString();
+        Intent intent=new Intent(context,PhoneActivity.class);
+        intent.putExtra("call",n);
+        context.startActivity(intent);
+    }
+});
     }
 
     @Override
@@ -68,7 +106,7 @@ holder.imageView.setImageResource(list.get(position).getPhoto());
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 private TextView t1,t2;
-private ImageView imageView;
+private ImageView imageView,imageView2;
 private LinearLayout layout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +114,8 @@ private LinearLayout layout;
             t1=itemView.findViewById(R.id.cn);
             t2=itemView.findViewById(R.id.pn);
             imageView=itemView.findViewById(R.id.img);
+            imageView2=itemView.findViewById(R.id.img2);
+
 
         }
     }

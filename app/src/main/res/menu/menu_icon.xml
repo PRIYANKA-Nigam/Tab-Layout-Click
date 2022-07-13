@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/call"
+        android:title="Home"
+        android:icon="@drawable/call"
+        app:showAsAction="always"/>
+    <item
+        android:title="View Contact"
+        android:orderInCategory="99"
+        android:id="@+id/contact"/>
+    <item
+        android:title="Media, links and docs"
+        android:orderInCategory="100"
+        android:id="@+id/doc"/>
+    <item
+        android:title="Search"
+        android:orderInCategory="101"
+        android:id="@+id/search"/>
+    <item
+        android:title="Info"
+        android:orderInCategory="102"
+        android:id="@+id/info"/>
+    <item
+        android:title="Wallpaper"
+        android:orderInCategory="103"
+        android:id="@+id/wallpaper"/>
+</menu>
