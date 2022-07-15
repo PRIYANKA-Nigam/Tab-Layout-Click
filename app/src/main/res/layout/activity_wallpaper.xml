@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WallpaperActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="236dp"
+        android:layout_height="94dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="314dp"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:onClick="btn"
+        android:textColor="#ffffff"
+        android:background="@color/purple_700"
+        android:text="Set Wallpaper" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="401dp"
+        android:layout_height="139dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="142dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:textColor="@android:color/holo_green_dark"
+        android:text="SET ATTRACTIVE LAYOUT IN HOMESCREEN AND LOCKSCREEN TO GIVE A ATTRACTIVE LAYOUT TO YOUR PHONE ..." />
+
+</RelativeLayout>

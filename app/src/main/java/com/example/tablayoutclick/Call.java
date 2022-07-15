@@ -1,12 +1,21 @@
 package com.example.tablayoutclick;
 
 public class Call {
-    private String Name;
+    private String Name,Num;
     private int Photo;
 
-    public Call(String name, int photo) {
+    public Call(String name,String num, int photo) {
         Name = name;
         Photo = photo;
+        Num=num;
+    }
+
+    public String getNum() {
+        return Num;
+    }
+
+    public void setNum(String num) {
+        Num = num;
     }
 
     public String getName() {

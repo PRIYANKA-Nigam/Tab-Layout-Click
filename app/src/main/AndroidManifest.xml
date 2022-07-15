@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tablayoutclick">
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +16,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TabLayoutClick">
-        <activity android:name=".CallActivity"></activity>
+        <activity android:name=".AudioRecorderActivity"></activity>
+        <activity android:name=".ImageShareActivity" />
+        <activity android:name=".TextRecogitionMainActivity" />
+        <activity android:name=".ExcelActivity" />
+        <activity android:name=".InternalActivity" />
+        <activity android:name=".ExternalActivity" />
+        <activity android:name=".DocActivity" />
+        <activity android:name=".WallpaperActivity" />
+        <activity android:name=".SpeechActivity" />
+        <activity android:name=".EmailActivity" />
+        <activity android:name=".CallActivity" />
         <activity android:name=".SMSActivity" />
         <activity android:name=".PhoneActivity" />
         <activity android:name=".MainActivity">
@@ -22,6 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="ocr"/>
     </application>
 
 </manifest>

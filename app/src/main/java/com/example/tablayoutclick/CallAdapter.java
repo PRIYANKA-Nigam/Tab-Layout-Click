@@ -1,5 +1,6 @@
 package com.example.tablayoutclick;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -20,16 +21,11 @@ import java.util.List;
 
 public class CallAdapter extends RecyclerView.Adapter<CallAdapter.MyViewHolder2 > {
     Context context;  List<Call> list;
-     Dialog dialog;
+     Dialog dialog;  ImageView imageView;
     public CallAdapter(Context context, List<Call> list) {
         this.context = context;
         this.list = list;
     }
-
-    public CallAdapter() {
-
-    }
-
     @NonNull
     @Override
     public MyViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -41,25 +37,28 @@ public class CallAdapter extends RecyclerView.Adapter<CallAdapter.MyViewHolder2 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder2 holder, int position) {
-
 holder.imageView.setImageResource(list.get(position).getPhoto());
 holder.t1.setText(list.get(position).getName());
-
+holder.t2.setText(list.get(position).getNum());
 holder.imageView.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Toast.makeText(context,"clicked",Toast.LENGTH_LONG).show();
-//        dialog=new Dialog(context);
-//        dialog.setContentView(R.layout.dialog_call_image);
-//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        ImageView imageView=(ImageView)dialog.findViewById(R.id.im);
-//        imageView.setImageResource(list.get(holder.getAdapterPosition()).getPhoto());
+        AlertDialog.Builder builder=new AlertDialog.Builder(view.getRootView().getContext());
+        View dialogView =LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dialog_call_image,null);
+        ImageView imageView=(ImageView)dialogView.findViewById(R.id.im);
+        imageView.setImageResource(list.get(holder.getAdapterPosition()).getPhoto());
+        builder.setView(dialogView);
+        builder.setCancelable(true);
+        builder.show();
     }
 });
 holder.layout.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-   context.startActivity(new Intent(context,CallActivity.class));
+        Intent intent=new Intent(context,CallActivity.class);
+        intent.putExtra("Desc",list.get(holder.getAdapterPosition()).getPhoto());
+        intent.putExtra("Num",list.get(holder.getAdapterPosition()).getNum());
+   context.startActivity(intent);
     }
 });
     }
@@ -70,13 +69,14 @@ holder.layout.setOnClickListener(new View.OnClickListener() {
     }
 
     public static class MyViewHolder2 extends RecyclerView.ViewHolder{
-        private TextView t1;
+        private TextView t1,t2;
         private ImageView imageView;
         private LinearLayout layout;
         public MyViewHolder2(@NonNull View itemView) {
             super(itemView);
             layout=itemView.findViewById(R.id.call);
             t1=itemView.findViewById(R.id.cn);
+            t2=itemView.findViewById(R.id.num);
             imageView=itemView.findViewById(R.id.img);
 
 

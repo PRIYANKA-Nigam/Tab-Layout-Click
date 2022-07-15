@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tab Layout Click</string>
+    <string name="doc"><u>Choose Media And Action</u> ...</string>
 </resources>
