@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="379dp"
+        android:layout_height="151dp"
+        android:layout_margin="16dp"
+        android:background="@android:color/holo_purple"
+        android:onClick="ClickLogo"
+        android:src="@drawable/gg1" />
+    <TextView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Priyanka Nigam" android:textSize="20sp"
+        android:textStyle="bold" android:textAlignment="center"
+        android:textColor="#636363" android:gravity="center_horizontal" />
+    <TextView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="8932946515" android:textSize="20sp"
+        android:textStyle="bold" android:textAlignment="center"
+        android:textColor="#636363" android:gravity="center_horizontal" />
+    <View android:layout_width="match_parent"
+        android:layout_height="1dp" android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp" android:background="#636363"/>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal"
+        android:gravity="center_vertical" android:onClick="ClickHome">
+        <TextView android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="Home" android:padding="12dp"
+            android:layout_marginStart="16dp" android:layout_marginLeft="16dp" />
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginEnd="48dp"
+            android:src="@drawable/home" android:layout_marginRight="48dp" />
+    </LinearLayout> <LinearLayout
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal" android:gravity="center_vertical"
+    android:onClick="ClickContact">
+    <TextView  android:layout_width="0dp"
+        android:layout_height="wrap_content" android:layout_weight="1"
+        android:text="Contacts" android:padding="12dp"
+        android:layout_marginStart="16dp" android:layout_marginLeft="16dp" />
+    <ImageView android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_marginEnd="48dp"
+        android:src="@drawable/contact"
+        android:layout_marginRight="48dp" /></LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal"
+        android:gravity="center_vertical" android:onClick="ClickNote">
+        <TextView android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="Add Note" android:padding="12dp"
+            android:layout_marginStart="16dp" android:layout_marginLeft="16dp" />
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginEnd="48dp"
+            android:src="@drawable/note"
+            android:layout_marginRight="48dp" /></LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal"
+        android:gravity="center_vertical" android:onClick="ClickAboutUs">
+        <TextView android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="About Us" android:padding="12dp"
+            android:layout_marginStart="16dp" android:layout_marginLeft="16dp" />
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginEnd="48dp"
+            android:src="@drawable/info"
+            android:layout_marginRight="48dp" /></LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal"
+        android:gravity="center_vertical" android:onClick="ClickLogout">
+        <TextView android:layout_width="0dp"
+            android:layout_height="wrap_content" android:layout_weight="1"
+            android:text="Logout" android:padding="12dp"
+            android:layout_marginStart="16dp" android:layout_marginLeft="16dp" />
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginEnd="48dp"
+            android:src="@drawable/logout"
+            android:layout_marginRight="48dp" /></LinearLayout>
+</LinearLayout>

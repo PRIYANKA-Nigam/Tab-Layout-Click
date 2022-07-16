@@ -1,5 +1,6 @@
 package com.example.tablayoutclick;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -73,23 +74,31 @@ public class FragmentContact extends Fragment {   MenuItem menuItem;
         super.onCreateOptionsMenu(menu, inflater);
     //  inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_search,menu);
-        MenuItem item=menu.findItem(R.id.sea);
-      //  menuItem=menu.add("menu_search");
-        SearchView searchView=(SearchView)item.getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-//                ((RecyclerViewAdapter)recyclerView.getAdapter()).setFilter(query);
-//                recyclerViewAdapter.notifyDataSetChanged();
-               // recyclerViewAdapter.getFilter().filter(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                recyclerViewAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
+//        MenuItem item=menu.findItem(R.id.sea);
+//      //  menuItem=menu.add("menu_search");
+//        SearchView searchView=(SearchView)item.getActionView();
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+////                ((RecyclerViewAdapter)recyclerView.getAdapter()).setFilter(query);
+////                recyclerViewAdapter.notifyDataSetChanged();
+//               // recyclerViewAdapter.getFilter().filter(query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                recyclerViewAdapter.getFilter().filter(newText);
+//                return false;
+//            }
+//        });
     }
+
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        if (item.getItemId()==R.id.note){ Intent intent=new Intent(getContext(),NoteActivity.class);
+//            startActivity(intent);return true; }
+//        return false;
+//
+//    }
 }

@@ -23,7 +23,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TabLayoutClick">
-        <activity android:name=".InfoActivity"></activity>
+        <activity android:name=".ContactActivity"></activity>
+        <activity android:name=".Note2Activity" />
+        <activity android:name=".NoteActivity" />
+        <activity android:name=".InfoActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".SpeechToTextActivity" />
         <activity android:name=".CameraActivity" />

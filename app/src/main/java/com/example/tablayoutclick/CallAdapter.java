@@ -9,6 +9,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,6 +49,22 @@ holder.imageView.setOnClickListener(new View.OnClickListener() {
         AlertDialog.Builder builder=new AlertDialog.Builder(view.getRootView().getContext());
         View dialogView =LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dialog_call_image,null);
         ImageView imageView=(ImageView)dialogView.findViewById(R.id.im);
+        ImageButton imageView2=dialogView.findViewById(R.id.imageButton);
+       ImageButton imageView3=dialogView.findViewById(R.id.imageButton2);
+                     imageView2.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View view) {
+                             Animation animation= AnimationUtils.loadAnimation(context,R.anim.zoom_in);
+                             imageView.startAnimation(animation);
+                         }
+                     });
+                     imageView3.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View view) {
+                             Animation animation= AnimationUtils.loadAnimation(context,R.anim.zoom_out);
+                             imageView.startAnimation(animation);
+                         }
+                     });
         imageView.setImageResource(list.get(holder.getAdapterPosition()).getPhoto());
         builder.setView(dialogView);
         builder.setCancelable(true);
