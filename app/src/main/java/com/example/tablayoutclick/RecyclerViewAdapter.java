@@ -12,19 +12,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> implements Filterable {
+    private List<Contact> v;
     private static final int REQUEST_CALL = 1 ;
     Context context; Dialog dialog;
 List<Contact> list;
@@ -102,6 +108,49 @@ holder.imageView2.setOnClickListener(new View.OnClickListener() {
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+//    public void setFilter(String newText) {
+//      v=new ArrayList<>(); o=new ArrayList<>();
+//        for (String i : o){
+//          if (i.toLowerCase().contains(newText))
+//              v.add(i);
+//      }
+//      notifyDataSetChanged();
+//    }
+
+    @Override
+    public Filter getFilter() {   v=new ArrayList<>();
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                charSequence=charSequence.toString().toLowerCase().trim();
+               // list.clear();
+                if (charSequence.length()==0)
+                    list.addAll(v);
+                else {
+                    for (Contact c:v){
+                        if (c.getName().toLowerCase(Locale.getDefault()).contains(charSequence)||c.getPhone().toLowerCase(Locale.getDefault()).contains(charSequence)){
+                            list.add(c);
+                        }
+                    }
+                }
+                FilterResults results=new FilterResults();
+                results.values=list;
+                results.count=list.size();
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+             if (filterResults.count==0){
+                 Toast.makeText(context,"No Results Found",Toast.LENGTH_LONG).show();
+                 notifyDataSetChanged();
+             }else {
+                 notifyDataSetChanged();
+             }
+            }
+        };
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{

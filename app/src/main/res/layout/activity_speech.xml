@@ -7,30 +7,64 @@
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".MainActivity">
-    <EditText android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:id="@+id/et"
-        android:hint="Enter Text Here"
-        android:textAlignment="center"
-        android:gravity="center_horizontal"
-        android:lines="5"
-        android:background="@drawable/round_button" />
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
-        <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:id="@+id/bt"
-            android:text="convert"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:background="@android:color/black"/>
-        <Space android:layout_height="wrap_content" android:layout_width="10dp" />
-        <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_weight="1" android:id="@+id/bt2" android:text="clear"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:background="@android:color/black"/></LinearLayout>
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave"
+        android:layout_width="match_parent"/>
 
+    <LinearLayout
+        android:layout_width="385dp"
+        android:layout_height="462dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:gravity="center_horizontal"
+            android:hint="Enter Text Here"
+            android:lines="5"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
+
+            <Button
+                android:id="@+id/bt"
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/black"
+                android:text="convert"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/bt2"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@android:color/black"
+                android:text="clear"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave2"
+        android:scaleY="-1"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"/>
 </LinearLayout>

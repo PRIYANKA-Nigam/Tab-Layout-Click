@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".SpeechToTextActivity">
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave"
+        android:layout_width="match_parent"/>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="341dp"
+        android:layout_height="255dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="167dp"
+        android:padding="20dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="157dp"
+        android:background="@drawable/round_button"
+        android:onClick="tspeech"
+        android:text="Tap to Open Mic"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="333dp"
+        android:layout_height="57dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="@string/voice"
+        android:textSize="27dp"
+        android:textStyle="bold" />
+
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave2"
+        android:scaleY="-1"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"/>
+</RelativeLayout>

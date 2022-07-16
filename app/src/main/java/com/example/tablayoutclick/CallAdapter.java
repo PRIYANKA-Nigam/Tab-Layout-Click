@@ -58,7 +58,9 @@ holder.layout.setOnClickListener(new View.OnClickListener() {
         Intent intent=new Intent(context,CallActivity.class);
         intent.putExtra("Desc",list.get(holder.getAdapterPosition()).getPhoto());
         intent.putExtra("Num",list.get(holder.getAdapterPosition()).getNum());
-   context.startActivity(intent);
+        intent.putExtra("Name",list.get(holder.getAdapterPosition()).getName());
+
+        context.startActivity(intent);
     }
 });
     }

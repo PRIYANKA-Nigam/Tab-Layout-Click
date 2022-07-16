@@ -1,35 +1,65 @@
 package com.example.tablayoutclick;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.scwang.wave.MultiWaveHeader;
+
+import java.util.ArrayList;
+import java.util.Locale;
 
 public class CallActivity extends AppCompatActivity {
-ImageView imageView;String num;
+ImageView imageView;String num,name; EditText editText;
+    MultiWaveHeader w1,w2; TextView textView,textView2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call);
         imageView = findViewById(R.id.imageView);
+        textView=findViewById(R.id.textView7);
+        textView2=findViewById(R.id.textView8);
+        editText=findViewById(R.id.editTextTextMultiLine3);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             int image = bundle.getInt("Desc", 0);
             num = bundle.getString("Num");
+            name = bundle.getString("Name");
             imageView.setImageResource(image);
         }
+        textView.setText(name);
+        w1=findViewById(R.id.wave);
+        w2=findViewById(R.id.wave2);
+        w1.setVelocity(1);
+        w1.setProgress(1);
+        w1.isRunning();
+        w1.setGradientAngle(45);
+        w1.setWaveHeight(40);
+        w1.setStartColor(Color.RED);
+        w1.setCloseColor(Color.CYAN);
+        w2.setVelocity(1);
+        w2.setProgress(1);
+        w2.isRunning();
+        w2.setGradientAngle(45);
+        w2.setWaveHeight(40);
+        w2.setStartColor(Color.MAGENTA);
+        w2.setCloseColor(Color.YELLOW);
     }
 
     @Override
@@ -79,7 +109,7 @@ ImageView imageView;String num;
                 i4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent=new Intent(CallActivity.this,SpeechActivity.class);
+                        Intent intent=new Intent(CallActivity.this, TextToSpeechActivity.class);
                         intent.putExtra("sms",num);
                         startActivity(intent);
                     }
@@ -97,10 +127,44 @@ ImageView imageView;String num;
                 Intent intent4 = new Intent(CallActivity.this, DocActivity.class);
                 startActivity(intent4);
                 break;
-//            case R.id.globe:
-//                Intent intent5 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
-//                startActivity(intent5);
-//                break;
+            case R.id.pay:
+                 startActivity(new Intent(CallActivity.this,PaymentActivity.class));
+                break;
+            case R.id.info:
+                startActivity(new Intent(CallActivity.this,InfoActivity.class));
+                break;
         }
         return super.onOptionsItemSelected(item); }
+
+    public void send(View view) {
+String s=editText.getText().toString().trim();
+editText.setText("");
+textView2.setText(s);
+    }
+
+    public void video(View view) {
+        startActivity(new Intent(CallActivity.this,VideoActivity.class));
+    }
+
+    public void camera(View view) {
+        startActivity(new Intent(CallActivity.this,CameraActivity.class));
+    }
+
+    public void speech(View view) {
+        Intent intent=new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"Hi Speak Something.");
+        try { startActivityForResult(intent,1);
+        }catch (ActivityNotFoundException e){ Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show(); }
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data); switch (requestCode){
+            case 1:
+                if (resultCode==RESULT_OK && data!=null){
+                    ArrayList<String> result=data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    editText.setText(result.get(0)); }
+                break; } }
 }

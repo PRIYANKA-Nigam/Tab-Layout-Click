@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -15,9 +16,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.scwang.wave.MultiWaveHeader;
+
 public class PhoneActivity extends AppCompatActivity {
     private static final int REQUEST_CALL=1;
-    private EditText e;
+    private EditText e;  MultiWaveHeader w1,w2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,22 @@ public class PhoneActivity extends AppCompatActivity {
                 makePhoneCall();
             }
         });
+        w1=findViewById(R.id.wave);
+        w2=findViewById(R.id.wave2);
+        w1.setVelocity(1);
+        w1.setProgress(1);
+        w1.isRunning();
+        w1.setGradientAngle(45);
+        w1.setWaveHeight(40);
+        w1.setStartColor(Color.RED);
+        w1.setCloseColor(Color.CYAN);
+        w2.setVelocity(1);
+        w2.setProgress(1);
+        w2.isRunning();
+        w2.setGradientAngle(45);
+        w2.setWaveHeight(40);
+        w2.setStartColor(Color.MAGENTA);
+        w2.setCloseColor(Color.YELLOW);
     }
 
     private void makePhoneCall() {

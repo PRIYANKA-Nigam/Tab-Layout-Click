@@ -20,10 +20,14 @@ public class AudioRecorderActivity extends AppCompatActivity { TextView textView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_recorder);
         textView=(TextView)findViewById(R.id.textView); mediaRecorder=new MediaRecorder();
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mediaRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-        mediaRecorder.setOutputFile(file);
+      try  {
+            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
+            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            mediaRecorder.setOutputFile(file);
+        } catch (Exception e){
+          e.printStackTrace();
+      }
     }
     public void onclick(View view) throws IOException { if (view.getId()==R.id.imageView){ record();
     }else if (view.getId()==R.id.imageView2){ stopAudio();
@@ -34,6 +38,8 @@ public class AudioRecorderActivity extends AppCompatActivity { TextView textView
     private void stopAudio() { mediaRecorder.stop();mediaRecorder.release();textView.setText("Recording Stopped");}
     private void record() throws IOException {
         mediaRecorder.prepare();
-        mediaRecorder.start();
-        textView.setText("Audio Recording ........."); }
+            mediaRecorder.start();
+            textView.setText("Audio Recording .........");
+
+    }
 }

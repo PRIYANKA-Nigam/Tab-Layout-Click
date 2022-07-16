@@ -3,15 +3,19 @@ package com.example.tablayoutclick;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.scwang.wave.MultiWaveHeader;
+
 public class EmailActivity extends AppCompatActivity {
     EditText e1,e2,e3;
     Button b;
+    MultiWaveHeader w1,w2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,23 @@ public class EmailActivity extends AppCompatActivity {
                 sendMail();
             }
         });
+        w1=findViewById(R.id.wave);
+        w2=findViewById(R.id.wave2);
+        w1.setVelocity(1);
+        w1.setProgress(1);
+        w1.isRunning();
+        w1.setGradientAngle(45);
+        w1.setWaveHeight(40);
+        w1.setStartColor(Color.RED);
+        w1.setCloseColor(Color.CYAN);
+        w2.setVelocity(1);
+        w2.setProgress(1);
+        w2.isRunning();
+        w2.setGradientAngle(45);
+        w2.setWaveHeight(40);
+        w2.setStartColor(Color.MAGENTA);
+        w2.setCloseColor(Color.YELLOW);
+
     }
     private void sendMail(){
         String recipientList=e1.getText().toString();

@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".DocActivity">
-
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave"
+        android:layout_width="match_parent"/>
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
@@ -47,7 +50,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:layout_marginTop="5dp"
-        android:text="SAN FOR TEXT RECOGNITION" />
+        android:text="SCAN FOR TEXT RECOGNITION" />
 
     <Button
         android:id="@+id/button8"
@@ -64,4 +67,10 @@
         android:textStyle="bold"
         android:layout_marginTop="5dp"
         android:text="AUDIO RECORDER" />
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave2"
+        android:scaleY="-1"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"/>
 </LinearLayout>

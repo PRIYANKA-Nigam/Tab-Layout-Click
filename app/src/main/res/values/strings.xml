@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Tab Layout Click</string>
     <string name="doc"><u>Choose Media And Action</u> ...</string>
+    <string name="excel"><u>CREATE EXCEL DATA</u></string>
+    <string name="camera"><u>Take a Shot On Camera</u></string>
+    <string name="voice"><u>Convert Your voice to Text</u></string>
 </resources>

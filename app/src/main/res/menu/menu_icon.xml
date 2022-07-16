@@ -14,9 +14,9 @@
         android:orderInCategory="100"
         android:id="@+id/doc"/>
     <item
-        android:title="Search"
+        android:title="UPI Payment"
         android:orderInCategory="101"
-        android:id="@+id/search"/>
+        android:id="@+id/pay"/>
     <item
         android:title="Info"
         android:orderInCategory="102"

@@ -2,8 +2,12 @@ package com.example.tablayoutclick;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,8 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentContact extends Fragment {
-    View view;
+public class FragmentContact extends Fragment {   MenuItem menuItem;
+    View view;  RecyclerViewAdapter recyclerViewAdapter;
     private RecyclerView recyclerView;
     private List<Contact> list;
     public FragmentContact() {
@@ -25,7 +29,7 @@ public class FragmentContact extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.contact_frag,container,false);
         recyclerView=(RecyclerView)view.findViewById(R.id.rec);
-        RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(getContext(),list);
+      recyclerViewAdapter=new RecyclerViewAdapter(getContext(),list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recyclerViewAdapter);
         return view;
@@ -62,5 +66,30 @@ public class FragmentContact extends Fragment {
         list.add(new Contact("Hina","(111) 251236741",R.drawable.gg4));
         list.add(new Contact("Shelly","(111) 251236741",R.drawable.gg6));
         list.add(new Contact("Divya","(111) 251236741",R.drawable.p2));
+        setHasOptionsMenu(true);
+    }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+    //  inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_search,menu);
+        MenuItem item=menu.findItem(R.id.sea);
+      //  menuItem=menu.add("menu_search");
+        SearchView searchView=(SearchView)item.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+//                ((RecyclerViewAdapter)recyclerView.getAdapter()).setFilter(query);
+//                recyclerViewAdapter.notifyDataSetChanged();
+               // recyclerViewAdapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                recyclerViewAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 }

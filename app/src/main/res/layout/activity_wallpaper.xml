@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WallpaperActivity">
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave"
+        android:layout_width="match_parent"/>
 
     <Button
         android:id="@+id/button"
@@ -12,13 +16,13 @@
         android:layout_height="94dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="314dp"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:onClick="btn"
-        android:textColor="#ffffff"
+        android:layout_marginTop="418dp"
         android:background="@color/purple_700"
-        android:text="Set Wallpaper" />
+        android:onClick="btn"
+        android:text="Set Wallpaper"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -26,19 +30,27 @@
         android:layout_height="139dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="142dp"
+        android:layout_marginTop="228dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="96dp"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="104dp"
         android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
+        android:text="SET ATTRACTIVE LAYOUT IN HOMESCREEN AND LOCKSCREEN TO GIVE A ATTRACTIVE LAYOUT TO YOUR PHONE ..."
         android:textColor="@android:color/holo_green_dark"
-        android:text="SET ATTRACTIVE LAYOUT IN HOMESCREEN AND LOCKSCREEN TO GIVE A ATTRACTIVE LAYOUT TO YOUR PHONE ..." />
-
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave2"
+        android:scaleY="-1"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"/>
 </RelativeLayout>
