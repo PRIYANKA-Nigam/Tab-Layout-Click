@@ -29,7 +29,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="254dp"
+        android:layout_marginTop="200dp"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -82,7 +82,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginBottom="97dp"
         android:gravity="center"
-        android:text="TextView"
+        android:text="Click Read to Check Saved Content ..."
         android:textColor="@android:color/holo_green_dark"
         android:textSize="25dp"
         android:textStyle="bold" />

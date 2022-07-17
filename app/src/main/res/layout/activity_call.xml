@@ -38,28 +38,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="send"
-                app:srcCompat="@drawable/send" />
+                android:src="@drawable/send" />
 
             <ImageButton
                 android:id="@+id/imageButton7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="video"
-                app:srcCompat="@drawable/video" />
+                android:src="@drawable/video" />
 
             <ImageButton
                 android:id="@+id/imageButton8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="camera"
-                app:srcCompat="@drawable/camera" />
+                android:src="@drawable/camera" />
             <ImageButton
                 android:id="@+id/imageButton9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="speech"
-                app:srcCompat="@drawable/mic" />
+                android:src="@drawable/mic" />
         </com.google.android.material.chip.ChipGroup>
 
 
@@ -116,7 +116,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="217dp"
-        android:text="TextView"
+        android:text=""
         android:textColor="@android:color/black"
         android:textSize="18dp"
         android:textStyle="bold" />
