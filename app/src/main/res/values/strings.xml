@@ -4,4 +4,6 @@
     <string name="excel"><u>CREATE EXCEL DATA</u></string>
     <string name="camera"><u>Take a Shot On Camera</u></string>
     <string name="voice"><u>Convert Your voice to Text</u></string>
+    <string name="info">hiii
+</string>
 </resources>
