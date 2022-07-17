@@ -31,12 +31,14 @@ public class ContactActivity extends AppCompatActivity {
         String[] projection={ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,ContactsContract.CommonDataKinds.Phone.NUMBER};
         String[] sel=null;String sortOrder=null;
         Cursor cursor=resolver.query(uri,projection,selection,sel, null);
-//        while (cursor.moveToNext()){
-//                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-//                String num = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-//                contact.add(name + "\n" + num);
-//
-//        }
+        while (cursor.moveToNext()){
+            int a =cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+            int b=cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);  //solution for range value should be >= 1
+                String name = cursor.getString(a);
+                String num = cursor.getString(b);
+                contact.add(name + "\n" + num);
+
+        }
         cursor.close();
         ((ListView)findViewById(R.id.ll)).setAdapter(new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,contact));
 
