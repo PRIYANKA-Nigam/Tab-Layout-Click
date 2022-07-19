@@ -60,7 +60,7 @@ private ViewPagerAdapter viewPagerAdapter;
         tabLayout=(TabLayout)findViewById(R.id.tab);
         viewPager=findViewById(R.id.vv);  drawerLayout=(DrawerLayout)findViewById(R.id.hdraw);
         viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.AddFragment(new FragmentCall(),"Call");
+        viewPagerAdapter.AddFragment(new FragmentChat(),"Chat");
         viewPagerAdapter.AddFragment(new FragmentContact(),"Contact"); //adding Fragments
         viewPagerAdapter.AddFragment(new FragmentFav(),"Favourite");
         viewPager.setAdapter(viewPagerAdapter);

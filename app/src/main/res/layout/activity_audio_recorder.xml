@@ -5,6 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AudioRecorderActivity">
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave"
+        android:layout_width="match_parent"/>
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
@@ -20,7 +24,7 @@
             android:layout_height="77dp"
             android:layout_weight="1"
             android:onClick="onclick"
-            app:srcCompat="@drawable/mic" />
+            android:src="@drawable/mic" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -28,7 +32,7 @@
             android:layout_height="77dp"
             android:layout_weight="1"
             android:onClick="onclick"
-            app:srcCompat="@drawable/pause" />
+            android:src="@drawable/pause" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -36,7 +40,7 @@
             android:layout_height="77dp"
             android:layout_weight="1"
             android:onClick="onclick"
-            app:srcCompat="@drawable/play" />
+            android:src="@drawable/play" />
     </LinearLayout>
     <TextView
         android:id="@+id/textView"
@@ -50,4 +54,22 @@
         android:layout_marginBottom="37dp"
         android:text=""
         android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="178dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:text="@string/audio"
+        android:textSize="25dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textStyle="bold" />
+    <com.scwang.wave.MultiWaveHeader
+        android:layout_height="100dp"
+        android:id="@+id/wave2"
+        android:scaleY="-1"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"/>
 </RelativeLayout>

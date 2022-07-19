@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.LayoutInflater;
@@ -20,26 +22,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hbb20.CountryCodePicker;
 import com.scwang.wave.MultiWaveHeader;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class CallActivity extends AppCompatActivity {
-ImageView imageView;String num,name; EditText editText;
+public class ChatActivity extends AppCompatActivity {
+ImageView imageView;String num,name; EditText editText,editText2;
     MultiWaveHeader w1,w2; TextView textView,textView2;
+    CountryCodePicker countryCodePicker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_call);
+        setContentView(R.layout.activity_chat);
+        countryCodePicker=findViewById(R.id.cc);
         imageView = findViewById(R.id.imageView);
         textView=findViewById(R.id.textView7);
         textView2=findViewById(R.id.textView8);
         editText=findViewById(R.id.editTextTextMultiLine3);
+        editText2=findViewById(R.id.editTextPhone);
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             int image = bundle.getInt("Desc", 0);
             num = bundle.getString("Num");
+            editText2.setText(num);
             name = bundle.getString("Name");
             imageView.setImageResource(image);
         }
@@ -71,19 +78,19 @@ ImageView imageView;String num,name; EditText editText;
     public boolean onOptionsItemSelected(@NonNull MenuItem item) { int id = item.getItemId();
         switch (id) {
             case R.id.call:
-                Intent intent1 = new Intent(CallActivity.this, PhoneActivity.class);
+                Intent intent1 = new Intent(ChatActivity.this, PhoneActivity.class);
                 intent1.putExtra("call",num);
                 startActivity(intent1);
                 break;
             case R.id.contact:
-                AlertDialog.Builder builder=new AlertDialog.Builder(CallActivity.this);
-                View dialogView =LayoutInflater.from(CallActivity.this).inflate(R.layout.view_contact,null);
+                AlertDialog.Builder builder=new AlertDialog.Builder(ChatActivity.this);
+                View dialogView =LayoutInflater.from(ChatActivity.this).inflate(R.layout.view_contact,null);
                TextView textView =dialogView.findViewById(R.id.textView3);
                ImageView i1=dialogView.findViewById(R.id.imageView2);
                i1.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View view) {
-                       Intent intent1 = new Intent(CallActivity.this, PhoneActivity.class);
+                       Intent intent1 = new Intent(ChatActivity.this, PhoneActivity.class);
                        intent1.putExtra("call",num);
                        startActivity(intent1);
                    }
@@ -92,7 +99,7 @@ ImageView imageView;String num,name; EditText editText;
                 i2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent=new Intent(CallActivity.this,SMSActivity.class);
+                        Intent intent=new Intent(ChatActivity.this,SMSActivity.class);
                         intent.putExtra("sms",num);
                        startActivity(intent);
                     }
@@ -101,7 +108,7 @@ ImageView imageView;String num,name; EditText editText;
                 i3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent=new Intent(CallActivity.this,EmailActivity.class);
+                        Intent intent=new Intent(ChatActivity.this,EmailActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -109,7 +116,7 @@ ImageView imageView;String num,name; EditText editText;
                 i4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent=new Intent(CallActivity.this, TextToSpeechActivity.class);
+                        Intent intent=new Intent(ChatActivity.this, TextToSpeechActivity.class);
                         intent.putExtra("sms",num);
                         startActivity(intent);
                     }
@@ -120,34 +127,58 @@ ImageView imageView;String num,name; EditText editText;
                 builder.show();
               break;
             case R.id.wallpaper:
-                Intent intent3 = new Intent(CallActivity.this, WallpaperActivity.class);
+                Intent intent3 = new Intent(ChatActivity.this, WallpaperActivity.class);
                 startActivity(intent3);
                 break;
             case R.id.doc:
-                Intent intent4 = new Intent(CallActivity.this, DocActivity.class);
+                Intent intent4 = new Intent(ChatActivity.this, DocActivity.class);
                 startActivity(intent4);
                 break;
             case R.id.pay:
-                 startActivity(new Intent(CallActivity.this,PaymentActivity.class));
+                 startActivity(new Intent(ChatActivity.this,PaymentActivity.class));
                 break;
             case R.id.info:
-                startActivity(new Intent(CallActivity.this,InfoActivity.class));
+                startActivity(new Intent(ChatActivity.this,InfoActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item); }
 
     public void send(View view) {
 String s=editText.getText().toString().trim();
-editText.setText("");
 textView2.setText(s);
+if(!s.isEmpty()){  countryCodePicker.registerCarrierNumberEditText(editText2);
+                   String phone=countryCodePicker.getFullNumber();
+    if (isWhatsappInstalled()){
+        Intent i =new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone="+phone+"&text="+s));
+        startActivity(i);
+        editText.setText("");
+    }else {
+        Toast.makeText(ChatActivity.this,"Whatsapp is not installed",Toast.LENGTH_LONG).show();
+
+    }
+}else {
+    Toast.makeText(ChatActivity.this,"Please Write a message to send",Toast.LENGTH_LONG).show();
+}
+    }
+    private boolean isWhatsappInstalled(){
+        PackageManager packageManager =getPackageManager();
+        boolean whatsappInstalled;
+        try {
+            packageManager.getPackageInfo("com.example.tablayoutclick",PackageManager.GET_ACTIVITIES);
+            whatsappInstalled=true;
+        } catch (PackageManager.NameNotFoundException e) {
+            whatsappInstalled=false;
+            e.printStackTrace();
+        }
+        return whatsappInstalled;
     }
 
     public void video(View view) {
-        startActivity(new Intent(CallActivity.this,VideoActivity.class));
+        startActivity(new Intent(ChatActivity.this,VideoActivity.class));
     }
 
     public void camera(View view) {
-        startActivity(new Intent(CallActivity.this,CameraActivity.class));
+        startActivity(new Intent(ChatActivity.this,CameraActivity.class));
     }
 
     public void speech(View view) {

@@ -53,7 +53,7 @@
         <activity android:name=".WallpaperActivity" />
         <activity android:name=".TextToSpeechActivity" />
         <activity android:name=".EmailActivity" />
-        <activity android:name=".CallActivity" />
+        <activity android:name=".ChatActivity" />
         <activity android:name=".SMSActivity" />
         <activity android:name=".PhoneActivity" />
         <activity android:name=".MainActivity">

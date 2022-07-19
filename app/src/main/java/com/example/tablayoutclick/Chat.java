@@ -1,10 +1,10 @@
 package com.example.tablayoutclick;
 
-public class Call {
+public class Chat {
     private String Name,Num;
     private int Photo;
 
-    public Call(String name,String num, int photo) {
+    public Chat(String name, String num, int photo) {
         Name = name;
         Photo = photo;
         Num=num;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CallActivity">
+    tools:context=".ChatActivity">
     <com.scwang.wave.MultiWaveHeader
         android:layout_height="100dp"
         android:id="@+id/wave"
@@ -120,4 +120,26 @@
         android:textColor="@android:color/black"
         android:textSize="18dp"
         android:textStyle="bold" />
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/cc"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="157dp"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="158dp"
+        android:ems="10"
+        android:inputType="phone" />
+
 </RelativeLayout>

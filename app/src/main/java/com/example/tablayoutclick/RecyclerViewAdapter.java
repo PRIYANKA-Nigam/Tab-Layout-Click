@@ -1,13 +1,12 @@
 package com.example.tablayoutclick;
 
-import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -103,6 +99,7 @@ holder.imageView2.setOnClickListener(new View.OnClickListener() {
         context.startActivity(intent);
     }
 });
+
     }
 
     @Override
@@ -164,7 +161,23 @@ private LinearLayout layout;
             t2=itemView.findViewById(R.id.pn);
             imageView=itemView.findViewById(R.id.img);
             imageView2=itemView.findViewById(R.id.img2);
-
+////           layout.setOnLongClickListener(new View.OnLongClickListener() {
+////                @Override
+////                public boolean onLongClick(View view) {
+////                    Bundle bundle=new Bundle();
+////                    bundle.putString("names",(t1).toString());
+////                    bundle.putString("mob",(t2).toString());
+////                    FragmentFav fragmentFav =new FragmentFav();
+////                    fragmentFav.setArguments(bundle);
+////                  //  FragmentContact fragmentContact = new FragmentContact();
+////                   getFragmentManager().beginTransaction().replace(R.id.cn,fragmentFav).commit();
+////                   getFragmentManager().beginTransaction().replace(R.id.pn ,fragmentFav).commit();
+////
+////
+////                    return false;
+////                }
+////
+//           });
 
         }
     }

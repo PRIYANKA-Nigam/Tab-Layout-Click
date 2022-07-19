@@ -4,8 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +13,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class CallAdapter extends RecyclerView.Adapter<CallAdapter.MyViewHolder2 > {
-    Context context;  List<Call> list;
+public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder2 > {
+    Context context;  List<Chat> list;
      Dialog dialog;  ImageView imageView;
-    public CallAdapter(Context context, List<Call> list) {
+    public ChatAdapter(Context context, List<Chat> list) {
         this.context = context;
         this.list = list;
     }
@@ -33,8 +30,8 @@ public class CallAdapter extends RecyclerView.Adapter<CallAdapter.MyViewHolder2 
     @Override
     public MyViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        view= LayoutInflater.from(context).inflate(R.layout.item_call,parent,false);
-        final CallAdapter.MyViewHolder2 myViewHolder= new MyViewHolder2(view);
+        view= LayoutInflater.from(context).inflate(R.layout.item_chat,parent,false);
+        final ChatAdapter.MyViewHolder2 myViewHolder= new MyViewHolder2(view);
         return myViewHolder;
     }
 
@@ -47,7 +44,7 @@ holder.imageView.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         AlertDialog.Builder builder=new AlertDialog.Builder(view.getRootView().getContext());
-        View dialogView =LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dialog_call_image,null);
+        View dialogView =LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dialog_chat_image,null);
         ImageView imageView=(ImageView)dialogView.findViewById(R.id.im);
         ImageButton imageView2=dialogView.findViewById(R.id.imageButton);
        ImageButton imageView3=dialogView.findViewById(R.id.imageButton2);
@@ -74,7 +71,7 @@ holder.imageView.setOnClickListener(new View.OnClickListener() {
 holder.layout.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Intent intent=new Intent(context,CallActivity.class);
+        Intent intent=new Intent(context, ChatActivity.class);
         intent.putExtra("Desc",list.get(holder.getAdapterPosition()).getPhoto());
         intent.putExtra("Num",list.get(holder.getAdapterPosition()).getNum());
         intent.putExtra("Name",list.get(holder.getAdapterPosition()).getName());
