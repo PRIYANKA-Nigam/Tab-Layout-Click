@@ -4,6 +4,10 @@
     <string name="excel"><u>CREATE EXCEL DATA</u></string>
     <string name="camera"><u>Take a Shot On Camera</u></string>
     <string name="voice"><u>Convert Your voice to Text</u></string>
+    <string name="facebook_app_id">1234</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">56789</string>
+
     <string name="info">hiii
 </string>
     <string name="audio"><u>AUDIO RECORDER</u></string>

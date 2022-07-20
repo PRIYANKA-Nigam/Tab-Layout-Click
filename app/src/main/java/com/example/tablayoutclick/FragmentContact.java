@@ -28,6 +28,7 @@ public class FragmentContact extends Fragment {   MenuItem menuItem;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+     //   myViewHolder=new RecyclerViewAdapter.MyViewHolder(view);
         view=inflater.inflate(R.layout.contact_frag,container,false);
         recyclerView=(RecyclerView)view.findViewById(R.id.rec);
       recyclerViewAdapter=new RecyclerViewAdapter(getContext(),list);
@@ -69,6 +70,7 @@ public class FragmentContact extends Fragment {   MenuItem menuItem;
         list.add(new Contact("Divya","(111) 251236741",R.drawable.p2));
         setHasOptionsMenu(true);
     }
+
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -93,6 +95,7 @@ public class FragmentContact extends Fragment {   MenuItem menuItem;
 //            }
 //        });
     }
+
 
 //    @Override
 //    public boolean onOptionsItemSelected(@NonNull MenuItem item) {

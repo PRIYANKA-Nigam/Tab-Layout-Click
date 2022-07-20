@@ -20,13 +20,13 @@ public class FragmentFav extends Fragment {
         view=inflater.inflate(R.layout.fav_fragment,container,false);
         t1=view.findViewById(R.id.textView12);
         t2=view.findViewById(R.id.textView13);
-//         Bundle bundle=this.getArguments();
-//         if(bundle!=null) {
-//             String data = bundle.getString("names");
-//             String data2 = bundle.getString("mob");
-//             t1.setText(data);
-//             t2.setText(data2);
-//         }
+         Bundle bundle=this.getArguments();
+         if(bundle!=null) {
+             String data = bundle.getString("names");
+             String data2 = bundle.getString("mob");
+             t1.setText(data);
+             t2.setText(data2);
+         }
         return view;
     }
 }

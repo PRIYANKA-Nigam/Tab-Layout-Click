@@ -3,16 +3,12 @@ package com.example.tablayoutclick;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,11 +17,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> implements Filterable {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     private List<Contact> v;
     private static final int REQUEST_CALL = 1 ;
     Context context; Dialog dialog;
@@ -34,6 +28,7 @@ TextView textView2;
     public RecyclerViewAdapter(Context context, List<Contact> list) {
         this.context = context;
         this.list = list;
+
     }
 
     @NonNull
@@ -79,6 +74,25 @@ TextView textView2;
                 dialog.show();
             }
         });
+//       myViewHolder.layout.setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Bundle bundle=new Bundle();
+//                bundle.putString("names",myViewHolder.t1.toString());
+//                bundle.putString("mob",myViewHolder.t2.toString());
+//                FragmentFav fragmentFav =new FragmentFav();
+//                fragmentFav.setArguments(bundle);
+//               try {
+//                    FragmentContact fragmentContact = new FragmentContact();
+//                    fragmentContact.getFragmentManager().beginTransaction().replace(R.id.cn, fragmentFav).commit();
+//                    fragmentContact.getFragmentManager().beginTransaction().replace(R.id.pn, fragmentFav).commit();
+//                }catch (NullPointerException e){
+//                   e.printStackTrace();
+//               }
+//                return false;
+//            }
+////
+//        });
         return myViewHolder;
 
     }
@@ -116,39 +130,35 @@ holder.imageView2.setOnClickListener(new View.OnClickListener() {
 //      notifyDataSetChanged();
 //    }
 
-    @Override
-    public Filter getFilter() {   v=new ArrayList<>();
-        return new Filter() {
-            @Override
-            protected FilterResults performFiltering(CharSequence charSequence) {
-                charSequence=charSequence.toString().toLowerCase().trim();
-               // list.clear();
-                if (charSequence.length()==0)
-                    list.addAll(v);
-                else {
-                    for (Contact c:v){
-                        if (c.getName().toLowerCase(Locale.getDefault()).contains(charSequence)||c.getPhone().toLowerCase(Locale.getDefault()).contains(charSequence)){
-                            list.add(c);
-                        }
-                    }
-                }
-                FilterResults results=new FilterResults();
-                results.values=list;
-                results.count=list.size();
-                return results;
-            }
-
-            @Override
-            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-             if (filterResults.count==0){
-                 Toast.makeText(context,"No Results Found",Toast.LENGTH_LONG).show();
-                 notifyDataSetChanged();
-             }else {
-                 notifyDataSetChanged();
-             }
-            }
-        };
-    }
+//    public Filter getFilter() {   v=new ArrayList<>();
+//        return new Filter() {
+//            @Override
+//            protected FilterResults performFiltering(CharSequence charSequence) {
+//                charSequence=charSequence.toString().toLowerCase().trim();
+//               // list.clear();
+//                if (charSequence.length()==0)
+//                    list.addAll(v);
+//                else {
+//                    for (Contact c:v){
+//                        if (c.getName().toLowerCase(Locale.getDefault()).contains(charSequence)||c.getPhone().toLowerCase(Locale.getDefault()).contains(charSequence)){
+//                            list.add(c);
+//                        }
+//                    }
+//                }
+//                FilterResults results=new FilterResults();
+//                results.values=list;
+//                results.count=list.size();
+//                return results;
+//            }
+//
+//            @Override
+//            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+//             if (filterResults.count==0){
+//                 Toast.makeText(context,"No Results Found",Toast.LENGTH_LONG).show();
+//                 notifyDataSetChanged();
+//             }else {
+//                 notifyDataSetChanged();
+//             } }}; }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 private TextView t1,t2;
@@ -161,23 +171,25 @@ private LinearLayout layout;
             t2=itemView.findViewById(R.id.pn);
             imageView=itemView.findViewById(R.id.img);
             imageView2=itemView.findViewById(R.id.img2);
-////           layout.setOnLongClickListener(new View.OnLongClickListener() {
-////                @Override
-////                public boolean onLongClick(View view) {
-////                    Bundle bundle=new Bundle();
-////                    bundle.putString("names",(t1).toString());
-////                    bundle.putString("mob",(t2).toString());
-////                    FragmentFav fragmentFav =new FragmentFav();
-////                    fragmentFav.setArguments(bundle);
-////                  //  FragmentContact fragmentContact = new FragmentContact();
-////                   getFragmentManager().beginTransaction().replace(R.id.cn,fragmentFav).commit();
-////                   getFragmentManager().beginTransaction().replace(R.id.pn ,fragmentFav).commit();
+//            layout.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View view) {
+//                    Bundle bundle=new Bundle();
+//                    bundle.putString("names",t1.toString());
+//                    bundle.putString("mob",t2.toString());
+//                    FragmentFav fragmentFav =new FragmentFav();
+//                    fragmentFav.setArguments(bundle);
+//                    try{
+//                        Fragment fragmentContact = new FragmentContact();
+//                        fragmentContact.getFragmentManager().beginTransaction().replace(R.id.cn, fragmentFav).commit();
+//                        fragmentContact.getFragmentManager().beginTransaction().replace(R.id.pn, fragmentFav).commit();
+//                    }catch (NullPointerException e){
+//                        e.printStackTrace();
+//                    }
+//                    return false;
+//                }
 ////
-////
-////                    return false;
-////                }
-////
-//           });
+//            });
 
         }
     }

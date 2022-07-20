@@ -82,6 +82,14 @@ ImageView imageView;String num,name; EditText editText,editText2;
                 intent1.putExtra("call",num);
                 startActivity(intent1);
                 break;
+            case R.id.share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "name: "+name+"\n"+"Mobile Number: "+num);
+              //  sendIntent.putExtra(Intent.EXTRA_TEXT,num);
+                sendIntent.setType("text/plain");
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
             case R.id.contact:
                 AlertDialog.Builder builder=new AlertDialog.Builder(ChatActivity.this);
                 View dialogView =LayoutInflater.from(ChatActivity.this).inflate(R.layout.view_contact,null);

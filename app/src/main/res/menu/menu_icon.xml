@@ -14,15 +14,19 @@
         android:orderInCategory="100"
         android:id="@+id/doc"/>
     <item
-        android:title="UPI Payment"
+        android:title="Share"
         android:orderInCategory="101"
+        android:id="@+id/share"/>
+    <item
+        android:title="UPI Payment"
+        android:orderInCategory="102"
         android:id="@+id/pay"/>
     <item
         android:title="Info"
-        android:orderInCategory="102"
+        android:orderInCategory="103"
         android:id="@+id/info"/>
     <item
         android:title="Wallpaper"
-        android:orderInCategory="103"
+        android:orderInCategory="104"
         android:id="@+id/wallpaper"/>
 </menu>

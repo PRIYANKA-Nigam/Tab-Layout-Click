@@ -65,5 +65,7 @@ public class ContactActivity extends AppCompatActivity {
     public void ClickLogout(View view){
         MainActivity.logout(this);
     }
+    public void ClickFacebook(View view){MainActivity.redirectActivity(this,FaceBookActivity.class);}
+    public void ClickWhatsapp(View view){MainActivity.redirectActivity(this,WhatsappActivity.class);}
     protected void onPause() { super.onPause(); MainActivity.closeDrawer(drawerLayout); }
 }

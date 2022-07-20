@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/wdraw"
+    tools:context=".WhatsappActivity">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent" android:orientation="vertical">
+    <include layout="@layout/main_toolbar" />
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="143dp"
+        android:gravity="center"
+        android:text="Navigating to Whatsapp"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView11"
+            android:layout_width="363dp"
+            android:layout_height="315dp"
+             android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:onClick="whatsapp"
+            app:srcCompat="@drawable/what" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="@android:color/white">
+        <include layout="@layout/main_nav_drawer"/>
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
