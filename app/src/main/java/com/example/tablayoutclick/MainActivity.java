@@ -123,7 +123,7 @@ private ViewPagerAdapter viewPagerAdapter;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tabLayout=(TabLayout)findViewById(R.id.tab);
+        tabLayout=findViewById(R.id.tab);
         viewPager=findViewById(R.id.vv);  drawerLayout=(DrawerLayout)findViewById(R.id.hdraw);
         viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.AddFragment(new FragmentChat(),"Chat");

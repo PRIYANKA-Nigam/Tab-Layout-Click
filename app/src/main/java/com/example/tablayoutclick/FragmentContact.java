@@ -31,7 +31,7 @@ public class FragmentContact extends Fragment {   MenuItem menuItem;
      //   myViewHolder=new RecyclerViewAdapter.MyViewHolder(view);
         view=inflater.inflate(R.layout.contact_frag,container,false);
         recyclerView=(RecyclerView)view.findViewById(R.id.rec);
-      recyclerViewAdapter=new RecyclerViewAdapter(getContext(),list);
+        recyclerViewAdapter=new RecyclerViewAdapter(getContext(),list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recyclerViewAdapter);
         return view;

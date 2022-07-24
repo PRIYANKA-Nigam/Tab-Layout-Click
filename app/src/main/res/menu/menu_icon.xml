@@ -5,6 +5,10 @@
         android:title="Call"
         android:icon="@drawable/call"
         app:showAsAction="always"/>
+    <item android:id="@+id/videocall"
+        android:title="Video Call"
+        android:icon="@drawable/videocall"
+        app:showAsAction="always"/>
     <item
         android:title="View Contact"
         android:orderInCategory="99"

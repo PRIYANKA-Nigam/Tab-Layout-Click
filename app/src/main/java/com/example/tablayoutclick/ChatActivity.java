@@ -82,6 +82,10 @@ ImageView imageView;String num,name; EditText editText,editText2;
                 intent1.putExtra("call",num);
                 startActivity(intent1);
                 break;
+            case R.id.videocall:
+                Intent intent2 = new Intent(ChatActivity.this,VideoCallActivity.class);
+                startActivity(intent2);
+                break;
             case R.id.share:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);

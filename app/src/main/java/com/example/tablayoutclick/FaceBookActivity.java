@@ -12,12 +12,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.facebook.CallbackManager;
-
 public class FaceBookActivity extends AppCompatActivity {
 DrawerLayout drawerLayout; TextView textView;
 ImageView imageView;private Button button;
-    CallbackManager callbackManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,25 +23,6 @@ ImageView imageView;private Button button;
         textView=findViewById(R.id.textView15);
         imageView=findViewById(R.id.imageView9);
         button=findViewById(R.id.login_button);
-//       callbackManager = CallbackManager.Factory.create();
-//        button.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                textView.setText("key id:"+loginResult.getAccessToken().getUserId());
-//                String url="https://www.facebook.com/"+loginResult.getAccessToken().getUserId()+"";
-//
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//
-//            }
-//
-//            @Override
-//            public void onError(@NotNull FacebookException e) {
-//
-//            }
-//        });
 button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
@@ -73,12 +51,6 @@ button.setOnClickListener(new View.OnClickListener() {
             startActivity(intent);
         }
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        callbackManager.onActivityResult(requestCode,resultCode,data);
-//    }
 
     public void ClickMenu(View view){
         MainActivity.openDrawer(drawerLayout);
