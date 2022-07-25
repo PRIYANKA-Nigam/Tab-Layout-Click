@@ -68,7 +68,8 @@
         <activity android:name=".ChatActivity" />
         <activity android:name=".SMSActivity" />
         <activity android:name=".PhoneActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:supportsPictureInPicture="true"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

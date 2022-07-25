@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.PictureInPictureParams;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -136,6 +137,12 @@ private ViewPagerAdapter viewPagerAdapter;
         tabLayout.getTabAt(2).setIcon(R.drawable.favorite);
         ActionBar actionBar=getSupportActionBar();   //Remove Shadow from the action bar
         actionBar.setElevation(0);
+    }
+    @Override
+    public void onUserLeaveHint () {
+        PictureInPictureParams pictureInPictureParams= new PictureInPictureParams.Builder().build();
+        enterPictureInPictureMode(pictureInPictureParams);
+
     }
     public void ClickMenu(View view){
         openDrawer(drawerLayout);
