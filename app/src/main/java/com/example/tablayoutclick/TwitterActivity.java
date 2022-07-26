@@ -65,7 +65,7 @@ public class TwitterActivity extends AppCompatActivity {
     public void ClickWhatsapp(View view){MainActivity.redirectActivity(this,WhatsappActivity.class);}
     public void ClickInsta(View view){MainActivity.redirectActivity(this,InstaActivity.class);}
     public void ClickLinkedIn(View view){MainActivity.redirectActivity(this,LinkedInActivity.class);}
-    public void ClickGmail(View view){MainActivity.redirectActivity(this,GmailActivity.class);}
+    public void ClickMeet(View view){MainActivity.redirectActivity(this,VideoCallActivity.class);}
     public void ClickTwitter(View view){recreate();}
     protected void onPause() { super.onPause(); MainActivity.closeDrawer(drawerLayout); }
 

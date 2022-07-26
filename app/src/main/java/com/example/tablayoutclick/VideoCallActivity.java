@@ -1,6 +1,7 @@
 package com.example.tablayoutclick;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
@@ -16,12 +17,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class VideoCallActivity extends AppCompatActivity {
+    DrawerLayout drawerLayout;
 EditText editText; Button button;
 URL serverUrl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_call);
+        drawerLayout=findViewById(R.id.mdraw);
         editText=findViewById(R.id.editTextTextPersonName7);
         button=findViewById(R.id.button10);
         try {
@@ -43,10 +46,35 @@ button.setOnClickListener(new View.OnClickListener() {
                 .setAudioMuted(false)
                 .setVideoMuted(false)
                 .setAudioOnly(false)
-                .setConfigOverride("requireDisplayName", true)
                 .build();
         JitsiMeetActivity.launch(VideoCallActivity.this, options);
     }
 });
     }
+    public void ClickMenu(View view){
+        MainActivity.openDrawer(drawerLayout);
+    }
+    public void ClickLogo(View view){
+        MainActivity.closeDrawer(drawerLayout);
+    }
+    public void ClickHome(View view){
+        MainActivity.redirectActivity(this,MainActivity.class);
+    }
+    public void ClickContact(View view){ MainActivity.redirectActivity(this,ContactActivity.class); }
+    public void ClickNote(View view){
+        MainActivity.redirectActivity(this,NoteActivity.class);
+    }
+    public void ClickAboutUs(View view){
+        MainActivity.redirectActivity(this,InfoActivity.class);
+    }
+    public void ClickLogout(View view){
+        MainActivity.logout(this);
+    }
+    public void ClickFacebook(View view){MainActivity.redirectActivity(this,FaceBookActivity.class);}
+    public void ClickWhatsapp(View view){MainActivity.redirectActivity(this,WhatsappActivity.class);}
+    public void ClickInsta(View view){MainActivity.redirectActivity(this,InstaActivity.class);}
+    public void ClickLinkedIn(View view){MainActivity.redirectActivity(this,LinkedInActivity.class);}
+    public void ClickMeet(View view){recreate();}
+    public void ClickTwitter(View view){MainActivity.redirectActivity(this,TwitterActivity.class);}
+    protected void onPause() { super.onPause(); MainActivity.closeDrawer(drawerLayout); }
 }

@@ -56,7 +56,7 @@
             android:layout_marginStart="16dp" android:layout_marginLeft="16dp" />
         <ImageView android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_marginEnd="48dp"
-            android:src="@drawable/note"
+            android:src="@drawable/notes"
             android:layout_marginRight="48dp" /></LinearLayout>
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content" android:orientation="horizontal"
@@ -80,8 +80,11 @@
             android:layout_height="wrap_content" android:layout_marginEnd="48dp"
             android:src="@drawable/logout"
             android:layout_marginRight="48dp" /></LinearLayout>
+    <View android:layout_width="match_parent"
+        android:layout_height="6dp" android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp" android:background="#636363"/>
     <LinearLayout android:layout_width="match_parent"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content" android:orientation="horizontal"
         android:gravity="center_vertical" android:onClick="ClickLogout">
     <ImageView
@@ -112,7 +115,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:gravity="center_vertical"
         android:onClick="ClickLogout"
         android:orientation="horizontal">
@@ -128,8 +131,8 @@
             android:layout_width="100dp"
             android:layout_height="83dp"
             android:layout_gravity="center"
-            android:onClick="ClickGmail"
-            android:src="@drawable/gm" />
+            android:onClick="ClickMeet"
+            android:src="@drawable/meeting" />
         <ImageView
             android:id="@+id/imageView12"
             android:layout_width="100dp"

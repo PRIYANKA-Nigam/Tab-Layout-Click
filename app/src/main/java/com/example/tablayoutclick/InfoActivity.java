@@ -31,6 +31,9 @@ public class InfoActivity extends AppCompatActivity {
     }
     public void ClickFacebook(View view){MainActivity.redirectActivity(this,FaceBookActivity.class);}
     public void ClickWhatsapp(View view){MainActivity.redirectActivity(this,WhatsappActivity.class);}
-
+    public void ClickInsta(View view){MainActivity.redirectActivity(this,InstaActivity.class);}
+    public void ClickLinkedIn(View view){MainActivity.redirectActivity(this,LinkedInActivity.class);}
+    public void ClickMeet(View view){MainActivity.redirectActivity(this,VideoCallActivity.class);}
+    public void ClickTwitter(View view){MainActivity.redirectActivity(this,TwitterActivity.class);}
     protected void onPause() { super.onPause(); MainActivity.closeDrawer(drawerLayout); }
 }

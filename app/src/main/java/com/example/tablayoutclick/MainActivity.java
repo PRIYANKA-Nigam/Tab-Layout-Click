@@ -78,13 +78,13 @@ private ViewPagerAdapter viewPagerAdapter;
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss(); }});builder.show(); }
-    public static void logout(final GmailActivity gmailActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(gmailActivity);builder.setTitle("Logout");
+    public static void logout(final VideoCallActivity videoCallActivity) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(videoCallActivity);builder.setTitle("Logout");
         builder.setMessage("Are You Sure You Want to Logout ?");
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
             public void onClick(DialogInterface dialog, int which) {
-                gmailActivity.finishAffinity(); System.exit(0); }});
+                videoCallActivity.finishAffinity(); System.exit(0); }});
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -169,7 +169,7 @@ private ViewPagerAdapter viewPagerAdapter;
     public void ClickWhatsapp(View view){redirectActivity(this,WhatsappActivity.class);}
     public void ClickInsta(View view){redirectActivity(this,InstaActivity.class);}
     public void ClickLinkedIn(View view){redirectActivity(this,LinkedInActivity.class);}
-    public void ClickGmail(View view){redirectActivity(this,GmailActivity.class);}
+    public void ClickMeet(View view){redirectActivity(this,VideoCallActivity.class);}
     public void ClickTwitter(View view){redirectActivity(this,TwitterActivity.class);}
 
     public static void logout(final MainActivity mainActivity) { AlertDialog.Builder builder=new AlertDialog.Builder(mainActivity);
