@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -45,10 +46,10 @@ DrawerLayout drawerLayout;
     public void ClickAboutUs(View view){
         MainActivity.redirectActivity(this,InfoActivity.class);
     }
-    public void ClickFacebook(View view){MainActivity.redirectActivity(this,FaceBookActivity.class);}
-    public void ClickInsta(View view){MainActivity.redirectActivity(this,InstaActivity.class);}
-    public void ClickLinkedIn(View view){MainActivity.redirectActivity(this,LinkedInActivity.class);}
+    public void ClickInsta(View view){MainActivity.redirectActivity2(this,AppLinkActivity.class,"i");}
+    public void ClickLinkedIn(View view){MainActivity.redirectActivity2(this,AppLinkActivity.class,"l");}
     public void ClickMeet(View view){MainActivity.redirectActivity(this,VideoCallActivity.class);}
-    public void ClickTwitter(View view){MainActivity.redirectActivity(this,TwitterActivity.class);}
+    public void ClickTwitter(View view){MainActivity.redirectActivity2(this,AppLinkActivity.class,"t");}
+    public void ClickFacebook(View view){MainActivity.redirectActivity2(this,AppLinkActivity.class,"f");}
     public void ClickWhatsapp(View view){recreate();}
 }

@@ -24,102 +24,39 @@ private ViewPager viewPager;
 private ViewPagerAdapter viewPagerAdapter;
     DrawerLayout drawerLayout;
     public static void logout(final ContactActivity contactActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(contactActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-               contactActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); }});builder.show(); }
-    public static void logout(final FaceBookActivity faceBookActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(faceBookActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                faceBookActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); }});builder.show(); }
+        dialog(contactActivity);
+    }
+
+    private static void dialog(Activity activity) {
+            AlertDialog.Builder builder=new AlertDialog.Builder(activity);builder.setTitle("Logout");
+            builder.setMessage("Are You Sure You Want to Logout ?");
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
+                public void onClick(DialogInterface dialog, int which) {
+                  activity.finishAffinity(); System.exit(0); }});
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss(); }});builder.show();
+    }
+
     public static void logout(final WhatsappActivity whatsappActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(whatsappActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                whatsappActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); }});builder.show(); }
-    public static void logout(final InstaActivity instaActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(instaActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                instaActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); }});builder.show(); }
-    public static void logout(final LinkedInActivity linkedInActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(linkedInActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                linkedInActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); }});builder.show(); }
+        dialog(whatsappActivity);
+    }
+
+
     public static void logout(final VideoCallActivity videoCallActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(videoCallActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                videoCallActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); }});builder.show(); }
-    public static void logout(final TwitterActivity twitterActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(twitterActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                twitterActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss(); }});builder.show(); }
+        dialog(videoCallActivity);
+    }
+
     public static void logout(final NoteActivity noteActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(noteActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                noteActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() { @Override
-        public void onClick(DialogInterface dialog, int which) {
-            dialog.dismiss(); }});builder.show(); }
+      dialog(noteActivity);
+    }
+    public static void logout(final AppLinkActivity infoActivity) {
+        dialog(infoActivity);}
     public static void logout(final InfoActivity infoActivity) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(infoActivity);builder.setTitle("Logout");
-        builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                infoActivity.finishAffinity(); System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() { @Override
-        public void onClick(DialogInterface dialog, int which) {
-            dialog.dismiss(); }});builder.show(); }
+        dialog(infoActivity);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -165,21 +102,27 @@ private ViewPagerAdapter viewPagerAdapter;
     public void ClickAboutUs(View view){
         redirectActivity(this,InfoActivity.class);
     }
-    public void ClickFacebook(View view){redirectActivity(this,FaceBookActivity.class);}
+    public void ClickFacebook(View view){redirectActivity2(this,AppLinkActivity.class,"f");}
     public void ClickWhatsapp(View view){redirectActivity(this,WhatsappActivity.class);}
-    public void ClickInsta(View view){redirectActivity(this,InstaActivity.class);}
-    public void ClickLinkedIn(View view){redirectActivity(this,LinkedInActivity.class);}
+    public void ClickInsta(View view){redirectActivity2(this,AppLinkActivity.class,"i");}
+    public void ClickLinkedIn(View view){redirectActivity2(this,AppLinkActivity.class,"l");}
     public void ClickMeet(View view){redirectActivity(this,VideoCallActivity.class);}
-    public void ClickTwitter(View view){redirectActivity(this,TwitterActivity.class);}
+    public void ClickTwitter(View view){redirectActivity2(this,AppLinkActivity.class,"t");}
 
-    public static void logout(final MainActivity mainActivity) { AlertDialog.Builder builder=new AlertDialog.Builder(mainActivity);
-        builder.setTitle("Logout");builder.setMessage("Are You Sure You Want to Logout ?");
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)  @Override
-            public void onClick(DialogInterface dialog, int which) {
-                mainActivity.finishAffinity();System.exit(0); }});
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() { @Override
-        public void onClick(DialogInterface dialog, int which) { dialog.dismiss(); }}); builder.show(); }
+    public static void logout(final MainActivity mainActivity) {
+        dialog(mainActivity);
+    }
+    public static void redirectActivity2(Activity activity, Class aclass,String s) { Intent intent=new Intent(activity,aclass);
+        if(s=="l")
+            intent.putExtra("link","https://www.linkedin.com/in/priyanka-nigam-083247172");
+        if(s=="i")
+            intent.putExtra("link","https://www.instagram.com/nigampriyanka042");
+        if(s=="t")
+            intent.putExtra("link","https://www.twitter.com/PriyankaN2504");
+        if(s=="f")
+            intent.putExtra("link","https://www.facebook.com/priyanka.nigam.9256");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); activity.startActivity(intent); }
+
     public static void redirectActivity(Activity activity, Class aclass) { Intent intent=new Intent(activity,aclass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); activity.startActivity(intent); } @Override
     protected void onPause() { super.onPause(); closeDrawer(drawerLayout); }

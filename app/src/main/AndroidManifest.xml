@@ -28,12 +28,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TabLayoutClick">
-        <activity android:name=".VideoCallActivity"></activity>
-        <activity android:name=".TwitterActivity" />
-        <activity android:name=".LinkedInActivity" />
-        <activity android:name=".InstaActivity" />
+        <activity android:name=".AppLinkActivity"></activity>
+        <activity android:name=".VideoCallActivity" />
         <activity android:name=".WhatsappActivity" />
-        <activity android:name=".FaceBookActivity" />
 
         <provider
             android:name=".GenericFileProvider"
@@ -66,8 +63,10 @@
         <activity android:name=".ChatActivity" />
         <activity android:name=".SMSActivity" />
         <activity android:name=".PhoneActivity" />
-        <activity android:name=".MainActivity" android:supportsPictureInPicture="true"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:supportsPictureInPicture="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
